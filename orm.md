@@ -112,13 +112,13 @@ Now, a small note about the double underscore (`__`). These are __very__ python.
 
 The ORM is extremely powerful and very pythonic. But what about that Django Admin you might have heard about?
 
-![django-admin](django-admin.jpg)
+![django-admin](django-admin.png)
  
 One of the brilliant user accessibility features of Django is its Admin. If you define your models, you get a nice web-based editing portal, for free. 
 
 And what powers this? **The ORM**
 
-![django-admin-author](django-admin-author.jpg)
+![django-admin-author](django-admin-author.png)
 
 That's right! Given the code used to create the original models, Django turned that into a web-based portal, which is powered using the same raw functions we used earlier. By default, the admin is basic, but it's just a matter of adding more definitions in your model to change how the admin looks. For example, those `__str__` methods earlier? We use those to define what an Author object looks like (in this case, just the name of the author). With a bit of work, you can make an interface that feels like a full content management system that allows your users to edit their own content with ease (for example, adding fields and filters for marking a post as "Published")
 
