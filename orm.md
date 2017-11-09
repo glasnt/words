@@ -53,14 +53,14 @@ This will bring us into an interactive console. The [`shell` command](https://do
 >>> from blog.models import *
 ```
 
-This imports all the blog models, so we can play with our blog posts, and authors. 
+This imports all the blog models, so we can play with our blog posts and authors. 
 
 For starters, let's get a list of all the Authors
 ```python
 >>> Author.objects.all()
 ```
 
-What we'll get from this command is a list of all the Authors in a representative string. We also won't fill our entire console, because if there are a lot of results, django will automatically truncate the printed results. 
+What we'll get from this command is a QuerySet of results, which lists all our Author objects. We also won't fill our entire console, because if there are a lot of results, django will automatically truncate the printed results. 
 
 ```python
 >>> Author.objects.all()
@@ -96,6 +96,7 @@ We can manipulate QuerySets using normal pythonic list manipulations
 ```python
 >>> for post in vmb.posts.all():
 ...   print(post.title)
+...
 7 tips for nailing your job interview
 5 tips for getting the biggest bang for your cover letter buck
 Quit making these 10 common resume mistakes
@@ -103,7 +104,7 @@ Quit making these 10 common resume mistakes
 
 If we want to do more complex querying, we can use filters instead of just getting everything. Here is where it gets tricky. In SQL, you have options like `like`, `contains`, and other filtering objects. You can do all these things in the ORM, too, but it has a special way of doing them: by using implictly (rather than explicitly) defined functions. 
 
-If I call a function `do_thing()` in my Python script, I'd expect there somewhere there would be a matching `def do_thing`. This is an explicit functionl definition. However in the ORM, you can call a function that __isn't explicitly defined__. Before we were using `name` to match on a name. But, if we wanted to do a substring search, we can use `name__contains`. 
+If I call a function `do_thing()` in my Python script, I'd expect there somewhere there would be a matching `def do_thing`. This is an explicit functional definition. However in the ORM, you can call a function that __isn't explicitly defined__. Before we were using `name` to match on a name. But, if we wanted to do a substring search, we can use `name__contains`. 
 
 ```python
 >>> Author.objects.filter(name__contains="Vic")
@@ -125,4 +126,6 @@ And what powers this? **The ORM**
 That's right! Given the code used to create the original models, Django turned that into a web-based portal, which is powered using the same raw functions we used earlier. By default, the admin is basic, but it's just a matter of adding more definitions in your model to change how the admin looks. For example, those `__str__` methods earlier? We use those to define what an Author object looks like (in this case, just the name of the author). With a bit of work, you can make an interface that feels like a full content management system that allows your users to edit their own content with ease (for example, adding fields and filters for marking a post as "Published")
 
 
-If you'd like to know more, the [djangogirls tutorial](https://djangogirls.org) section on [the ORM](https://tutorial.djangogirls.org/en/django_orm/) has a detailed walk through. There's also copious amounts of documentation on the [djangoproject website](https://docs.djangoproject.com/en/1.11/topics/db/)
+If you'd like to know more, the [djangogirls tutorial](https://djangogirls.org) section on [the ORM](https://tutorial.djangogirls.org/en/django_orm/) has a detailed walk through. There's also copious amounts of documentation on the [django project website](https://docs.djangoproject.com/en/1.11/topics/db/)
+
+
