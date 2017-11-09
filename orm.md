@@ -31,7 +31,9 @@ class Post(models.Model):
 
 Now, this might look a bit daunting, so let's break it down. We have two models: Author and Post. Each of those has a name or title. The post has a big text field for content, and a DateTimeField for the datetime. Post also has a `ManyToManyField`, which links Posts and Authors together.  
 
-We're going to jump ahead and assume that you have a running application using this model that already has content. It's now your task to go into the application and take a look around. There are a few ways to do this. You could login to the **django admin**, a web-based backend that has all the apps listed, and ways to manipulate them. We'll get back to that. We're interested in the ORM. 
+Most tutorials start from scratch -- but that's not what's going to happen in practice. In reality, you're going to get given a bunch of existing code like the `model.py` above, and you have to work out what it all means. 
+
+So it's now your task to go into the application and take a look around. There are a few ways to do this. You could login to the **django admin**, a web-based backend that has all the apps listed, and ways to manipulate them. We'll get back to that. We're interested in the ORM. 
 
 We can access the ORM by running `python manage.py shell` from the main directory of our Django project
 
@@ -45,7 +47,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-This will bring us into an interactive console. The [`shell` command](https://docs.djangoproject.com/en/1.11/ref/django-admin/#shell) did a lot of setup for us, including importing our settings and starting Django. While we've launched the shell, we can't access the Blog model we have until we import it. 
+This will bring us into an interactive console. The [`shell` command](https://docs.djangoproject.com/en/1.11/ref/django-admin/#shell) did a lot of setup for us, including importing our settings and configuring the Django environment. While we've launched the shell, we can't access the Blog model we have until we import it. 
 
 ```python
 >>> from blog.models import *
@@ -85,14 +87,14 @@ And this is where the cool stuff happens. Normally in relational databases, if w
 So in our model, authors write many posts. So, with our Author object, we can just check what posts they've made. 
 
 ```python
->>> vmb.posts
+>>> vmb.posts.all()
 QuerySet[<Post: "7 tips for nailing your job interview">, <Post: "5 tips for getting the biggest bang for your cover letter buck">, <Post: "Quit making these 10 common resume mistakes">, '...(remaining elements truncated)...']
 ```
 
 We can manipulate QuerySets using normal pythonic list manipulations
 
 ```python
->>> for post in vmb.posts:
+>>> for post in vmb.posts.all():
 ...   print(post.title)
 7 tips for nailing your job interview
 5 tips for getting the biggest bang for your cover letter buck
