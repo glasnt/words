@@ -62,6 +62,8 @@ Following a line-up of developers, [Karynne Ledger](https://twitter.com/currawon
 
 Hacker and maker and sometimes developer [Peter Hardy](https://twitter.com/stibbons) shared his various [lightning projects](https://www.youtube.com/watch?v=R7LyG00MQLM) including his physical Kerbel Space Program console, with big red buttons and LED displays, and a sound activated liqour cabinet.
 
+In his talk he also demonstrated [iCircuit](http://icircuitapp.com/), an app which allows you to test circuit diagrams without the chance of LEDs 'shining very brightly, very briefly'. 
+
 
 ## Crochet the coral reef
 
