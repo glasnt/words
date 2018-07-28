@@ -125,7 +125,7 @@ You don't always have to use top. Depending on your circumstances, other tools m
 
 ![image of docker image's processes, run in top](htop_preview.png)
 
-This is the representation of the same container as earlier, but as seen in `htop`. The display is a lot simpler, but still rich in features. 
+This is the representation of the same environment as earlier, but as seen in `htop`. The display is a lot simpler, but still rich in features. 
 
 Our task counts, load and uptime are still present, as is the list of processes with the columns, but we get a pretty nifty colourised animated view of the CPU usage __per core__, as well as a graph of memory usage. 
 
@@ -136,12 +136,14 @@ For CPU, the colours are separations of task priorities or types:
  - green - normal priority
  - red - kernel tasks
  - blue - virtualized tasks
+ 
 The percentage of used CPU ends the bar in the graph
 
 For memory: 
  - green - used memory
  - blue - buffered memory
  - yellow - cached memory
+ 
 The values at the end of the bar are the used and total memory
 
 If colours aren't useful for you, you can run `htop -C` to disable colours. Instead of colours, separate symbols are used to separate the CPU and Memory types. 
@@ -159,3 +161,4 @@ If you're working with Docker, you can run `docker stats` to generate a context-
 This can be more helpful than `top` because instead of separating by processes, you are separating by containers. This is especially useful when a container is slow, as seeing which container is using the most resources is quicker than using `top`, then trying to map the process to the container.  
 
 Given how much detail we've used to describe the acronyms and descriptors in `top` and `htop`, when you first see `docker stats` in action, the meanings should be clear and descriptive. However, the [`docker stats` documentation](https://docs.docker.com/engine/reference/commandline/stats/) provides helpful descriptions of each of the columns. 
+
