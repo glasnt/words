@@ -5,7 +5,7 @@ subtitle: Top off your top knowledge
 
 Trying to find out what's running on your machine, and which process is using up all your memory and making things slllooowwww, is an task served well by the utility `top`. 
 
-`top` is an extremely useful program that acts not unlike Windows Task Manager. 
+`top` is an extremely useful program that acts not unlike Windows Task Manager, or macOS's Activity Monitor.
 
 Running `top` on your \*nix machine will show you a live running view of the process running on your system.
 
@@ -28,11 +28,12 @@ KiB Swap:  1048572 total,        0 used,  1048572 free.  1804264 cached Mem
   195 root      20   0   23608   2724   2400 R   0.0  0.1   0:00.21 top
 ```
 
+_Your version of `top` may differ from this, particularly in the columns that are displayed._
+
 ## How to read the output
 
 We can tell what we're running based on this output, but trying to interpret the output can be slightly confusing. 
 
-_Your version of `top` may differ from this, particularly in the columns that are displayed._
 
 At the top we can see a bunch of statistics, and then we can see a list of things. 
 
@@ -46,12 +47,12 @@ The `COMMAND` column tells us the name of the process (the command that was run 
 
 The columns we're seeing are useful information about the processes from the column headers: 
  - `PID`: the *process id* - a unique identifier for addressing the processes
- - `USER`: the `user` that is running the process
+ - `USER`: the user that is running the process
  - `PR`: the priority of the task
  - `NI`: a nicer representation of the priority
- - `VIRT`: Virtual Memory Size (in kibibytes\*)
- - `RES`: Resident Memory Size (in kibibytes\*) - the "physical memory", a subset of VIRT
- - `SHR`: Shared Memory Size (in kibibytes\*) - the "shared memory", a subset of VIRT
+ - `VIRT`: Virtual Memory Size in KiB (kibibytes)\*
+ - `RES`: Resident Memory Size in KiB (kibibytes)\* - the "physical memory", a subset of VIRT
+ - `SHR`: Shared Memory Size in KiB (kibibytes)\* - the "shared memory", a subset of VIRT
  - `S`: Process State - one of: "I"dle, "R"unning, "S"leeping, "Z"ombie, Stopped ("T" or "t"), and other some less common options.
  - `%CPU`: Percentage of CPU Usage since the last screen update
  - `%MEM`: Percentage of Memory Usage (RES) since the last screen update
@@ -60,22 +61,22 @@ The columns we're seeing are useful information about the processes from the col
 
 A few notes on `VIRT`, `RES`, and `SHR`: 
 
-The exact mappings of what these three values represent is something which in everyday operations doesn't *really* matter. They are important in some circumstances, a process with more `VIRT` is using more member. If you would like to learn exactly what the "shared" and "physical" memory refers to, check out the "Linux Memory Types" of the [`top` manual](http://man7.org/linux/man-pages/man1/top.1.html)
+The exact mappings of what these three values represent is something which in everyday operations doesn't *really* matter. The most imporatnt thing is that the process with the most `VIRT` the process using the most memory. If you're in `top` because you're debugging why your computer feels like it's in a pool of molasses, the process with the biggest VIRT number is the culprit. If you would like to learn exactly what the "shared" and "physical" memory refers to, check out the "Linux Memory Types" of the [`top` manual](http://man7.org/linux/man-pages/man1/top.1.html)
 
-(Yes, I did type ki*bi*bytes, not ki*lo*bytes. The 1024 value that you normally refer to as a kilobyte is *actually* a kibibyte. The Greek *kilo* ("χίλιοι") means *thousand*, and is used to mean 1,000 of something (a kilometer -- a thousand meters, a kilogram -- a thousand grams). Kibi is a portmanteau of *kilo* and *byte*, and means 1024 bytes (or 2 to the power of 10, 2^10). But, because words are hard to say, many people say *kiloybyte* when they mean 1024 bytes. All of this to say that `top` is trying to use the proper terms here, so just go with it. #themoreyouknow
+(And yes, I did type ki*bi*bytes, not ki*lo*bytes. The 1024 value that you normally refer to as a kilobyte is *actually* a kibibyte. The Greek *kilo* ("χίλιοι") means *thousand*, and is used to mean 1,000 of something (a kilometer -- a thousand meters, a kilogram -- a thousand grams). Kibi is a portmanteau of *kilo* and *byte*, and means 1024 bytes (or 2 to the power of 10, 2^10). But, because words are hard to say, many people say *kiloybyte* when they mean 1024 bytes. All of this to say that `top` is trying to use the proper terms here, so just go with it. #themoreyouknow)
 
 A note on screen updates: 
 
-One of the objectionably __really cool things__ that linux programs can do is update their own display in a window so that they are live dated, and appear animated. In our case, the time between updates is important, because some of our statistics (`%CPU`, `%MEM`) are based on the value since the last screen update. 
+One of the objectionably __really cool things__ that linux programs can do is update their own display in a window so that they are updated live, and appear animated. In our case, the time between updates is important, because some of our statistics (`%CPU`, `%MEM`) are based on the value since the last screen update. 
 
 Because we're running in a persistent application, we can press key commands to exact various settings or configuration changes live (instead of, say, closing the application and running the application again with a different command-line flag.) 
 
-Typing `h` invokes the *help* screen, which also shows the default `delay` (the time between screen updates). By default this value is (probably) 3 seconds, but you can change this by typing `d` (presumably for "delay") or `s` (probably for "screen" or "seconds"). 
+Typing `h` invokes the *help* screen, which also shows the default _delay_ (the time between screen updates). By default this value is (probably) 3 seconds, but you can change this by typing `d` (presumably for "delay") or `s` (probably for "screen" or "seconds"). 
 
 
 ### The details
 
-On top of the list of processes and there details is a whole bunch of useful information. Again, some of these may look strange and confusing, but once you take some time to step through each item, they're very useful stats to pull up in a pinch .
+In addition to the list of processes and their details, there's a whole bunch more useful information. Again, some of these may look strange and confusing, but once you take some time to step through each item, they're very useful stats to pull up in a pinch.
 
 The first row: general system information
 
@@ -96,7 +97,7 @@ The third row: CPU information. This shows the CPU usage, separated by types. Th
  - `wa`: wait time, time spent waiting for I/O completion 
  - `hi`: time taken waiting for hardware interrupts 
  - `si`: time taken waiting for software interrupts
- - `st`: "time stolen from this vm by the hypervisor" (I'm not actually sure, sorry!)
+ - `st`: "time stolen from this vm by the hypervisor"
 
 You can collapse these last two rows at any time by typing `t` (for "toggle")
 
@@ -111,7 +112,7 @@ But also:
 The units used for this are `KiB` by default, but pressing `E` (for "Extend memory scaling") cycles through different values: kibibytes, mibibytes, gibibytes, tebibytes, pebibytes, and exbibytes (that is: kilobytes, megabytes, gigabytes, terabytes, petabytes, and exobytes, but their "real names")
 
 
-The *manual* for `top` shows you even more information about useful flags and configurations. To find the manual on your system, you can run `man top`. There are various websites that show a [HTML renderings of the manual](http://man7.org/linux/man-pages/man1/top.1.html), but note that _these may be for a different version of top_. 
+The user manual for `top` shows you even more information about useful flags and configurations. To find the manual on your system, you can run `man top`. There are various websites that show a [HTML renderings of the manual](http://man7.org/linux/man-pages/man1/top.1.html), but note that _these may be for a different version of top_. 
  
 
 ## top `top` alternatives
@@ -120,7 +121,7 @@ You don't always have to use top. Depending on your circumstances, other tools m
 
 ### htop
 
-`htop` is a lot like `top`, but at first glance adds something extremely useful to the table: a graphical representation of the CPU and Memory usages. 
+`htop` is a lot like `top`, but at first glance brings something extremely useful to the table: a graphical representation of the CPU and Memory usages. 
 
 ![image of docker image's processes, run in top](htop_preview.png)
 
