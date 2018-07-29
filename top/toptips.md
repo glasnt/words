@@ -32,14 +32,14 @@ _Your version of `top` may differ from this, particularly in the columns that ar
 
 ## How to read the output
 
-We can tell what we're running based on this output, but trying to interpret the output can be slightly confusing. 
+We can tell what we're running based on this output, but trying to interpret the results can be slightly confusing. 
 
 
-At the top we can see a bunch of statistics, and then we can see a list of things. 
+The first few lines have a bunch of statistics, and then we can see a list of things that seem to be a table or list of results. Let's start with those. 
 
 ### The list
 
-These are the *processes* that are running on the system which are ordered, by default, by CPU usage, in descending order. 
+These are the *processes* that are running on the system which are ordered, by default, by CPU usage, in descending order. This means that the items at the top of the list are using more CPU resources, and causing more load on your system.  
 
 Literally, the top processes by resource usage. You have to admit, it's a clever name. 
 
@@ -61,13 +61,13 @@ The columns we're seeing are useful information about the processes from the col
 
 A few notes on `VIRT`, `RES`, and `SHR`: 
 
-The exact mappings of what these three values represent is something which in everyday operations doesn't *really* matter. The most imporatnt thing is that the process with the most `VIRT` the process using the most memory. If you're in `top` because you're debugging why your computer feels like it's in a pool of molasses, the process with the biggest VIRT number is the culprit. If you would like to learn exactly what the "shared" and "physical" memory refers to, check out the "Linux Memory Types" of the [`top` manual](http://man7.org/linux/man-pages/man1/top.1.html)
+The exact mappings of what these three values represent is something which in everyday operations doesn't *really* matter. The most imporatnt thing is that the process with the most is `VIRT` the process using the most memory. If you're in `top` because you're debugging why your computer feels like it's in a pool of molasses, the process with the biggest VIRT number is the culprit. If you would like to learn exactly what the "shared" and "physical" memory refers to, check out the "Linux Memory Types" of the [`top` manual](http://man7.org/linux/man-pages/man1/top.1.html)
 
 (And yes, I did type ki*bi*bytes, not ki*lo*bytes. The 1024 value that you normally refer to as a kilobyte is *actually* a kibibyte. The Greek *kilo* ("χίλιοι") means *thousand*, and is used to mean 1,000 of something (a kilometer -- a thousand meters, a kilogram -- a thousand grams). Kibi is a portmanteau of *kilo* and *byte*, and means 1024 bytes (or 2 to the power of 10, 2^10). But, because words are hard to say, many people say *kiloybyte* when they mean 1024 bytes. All of this to say that `top` is trying to use the proper terms here, so just go with it. #themoreyouknow)
 
 A note on screen updates: 
 
-One of the objectionably __really cool things__ that linux programs can do is update their own display in a window so that they are updated live, and appear animated. In our case, the time between updates is important, because some of our statistics (`%CPU`, `%MEM`) are based on the value since the last screen update. 
+One of the objectively __really cool things__ that Linux programs can do is update their own display in a window so that they are updated live, and appear animated. In our case, the time between updates is important, because some of our statistics (`%CPU`, `%MEM`) are based on the value since the last screen update. 
 
 Because we're running in a persistent application, we can press key commands to exact various settings or configuration changes live (instead of, say, closing the application and running the application again with a different command-line flag.) 
 
@@ -92,7 +92,7 @@ The third row: CPU information. This shows the CPU usage, separated by types. Th
 
  - `us`: user processes
  - `sy`: system processes
- - `ni`: nice user processes
+ - `ni`: [nice](https://en.wikipedia.org/wiki/Nice_(Unix)#Etymology) user processes
  - `id`: idle time (a high idle time means there's not a lot going on, otherwise. This is the time the CPU is idle)
  - `wa`: wait time, time spent waiting for I/O completion 
  - `hi`: time taken waiting for hardware interrupts 
@@ -105,6 +105,7 @@ The fourth and fifth rows are memory information, for memory and swap. These val
  - `total`
  - `used`
  - `free`
+
 But also: 
  - memory `buffers`
  - swap `cached Mem`
