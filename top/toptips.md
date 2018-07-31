@@ -63,13 +63,13 @@ A few notes on `VIRT`, `RES`, and `SHR`:
 
 The exact mappings of what these three values represent is something which in everyday operations doesn't *really* matter. The most imporatnt thing is that the process with the most is `VIRT` the process using the most memory. If you're in `top` because you're debugging why your computer feels like it's in a pool of molasses, the process with the biggest VIRT number is the culprit. If you would like to learn exactly what the "shared" and "physical" memory refers to, check out the "Linux Memory Types" of the [`top` manual](http://man7.org/linux/man-pages/man1/top.1.html)
 
-(And yes, I did type ki*bi*bytes, not ki*lo*bytes. The 1024 value that you normally refer to as a kilobyte is *actually* a kibibyte. The Greek *kilo* ("χίλιοι") means *thousand*, and is used to mean 1,000 of something (a kilometer -- a thousand meters, a kilogram -- a thousand grams). Kibi is a portmanteau of *kilo* and *byte*, and means 1024 bytes (or 2 to the power of 10, 2^10). But, because words are hard to say, many people say *kiloybyte* when they mean 1024 bytes. All of this to say that `top` is trying to use the proper terms here, so just go with it. #themoreyouknow)
+(And yes, I did type ki*bi*bytes, not ki*lo*bytes. The 1024 value that you normally refer to as a kilobyte is *actually* a kibibyte. The Greek *kilo* ("χίλιοι") means *thousand*, and is used to mean 1,000 of something (a kilometer -- a thousand meters, a kilogram -- a thousand grams). Kibi is a portmanteau of *kilo* and *byte*, and means 1024 bytes (or 2 to the power of 10, 2^10). But, because words are hard to say, many people say *kilobyte* when they mean 1024 bytes. All of this to say that `top` is trying to use the proper terms here, so just go with it. #themoreyouknow 🌈)
 
 A note on screen updates: 
 
-One of the objectively __really cool things__ that Linux programs can do is update their own display in a window so that they are updated live, and appear animated. In our case, the time between updates is important, because some of our statistics (`%CPU`, `%MEM`) are based on the value since the last screen update. 
+One of the objectively __really cool things__ that Linux programs can do is update their own display in a window so that they are updated live, and appear animated. Even though they're using text. So cool! In our case, the time between updates is important, because some of our statistics (`%CPU`, `%MEM`) are based on the value since the last screen update. 
 
-Because we're running in a persistent application, we can press key commands to exact various settings or configuration changes live (instead of, say, closing the application and running the application again with a different command-line flag.) 
+And because we're running in a persistent application, we can press key commands to exact various settings or configuration changes live (instead of, say, closing the application and running the application again with a different command-line flag.) 
 
 Typing `h` invokes the *help* screen, which also shows the default _delay_ (the time between screen updates). By default this value is (probably) 3 seconds, but you can change this by typing `d` (presumably for "delay") or `s` (probably for "screen" or "seconds"). 
 
