@@ -1,14 +1,12 @@
 ## Out of the box talks
 
-Attending conferences can be amazing experiences: interesting people, great locations, and insightful talks. However, if you attend enough conference, or the wrong conference, you can succumm to one of the worst pandemics of our age. No, not 'conflu': death by powerpoint. 
-
-Being on stage, with a microphone and a projector displaying slides means you have a captive audience. However, there is nuance, an art if you will, to being able to engage and teach an audience without falling asleep or checking just how good the conference WiFi is.  
+Attending conferences can be amazing experiences: interesting people, great locations, and insightful talks. However, if you attend enough conferences, or the wrong conferences, you can succumm to one of the worst pandemics of our age. No, not 'conflu': death by powerpoint. 
 
 There are many articles and listicles that detail basics: things like making sure you have no bullet points, no text smaller than 60pt on the screen, etc. 
 
-However, there are better ways to convey your technical information and teach your audience: the "out-of-the-box talk".
+However, there are other ways to convey your technical information and teach your audience: the "out-of-the-box talk". You have slides and a microphone, but you use them to convey your content in a way that's engaging and entertaining to the audience. 
 
-Here are just some of my favourite talks that break the mould, speakers giving insightful and informative presentations with nary a bullet point in sight. 
+Here are just some of my favourite talks that break the mould, speakers giving insightful and informative presentations that have genuine re-watch value. 
 
 
 ### Popular Culture Analogies
@@ -39,7 +37,7 @@ You don't have to have slides, either. There are a number of talks that use an a
 
 Grace Nolan took this further by interlacing her slides and live artwork creation during her PyCon AU 2018 talk [Reflections on the Creative Process - Illustrated with Watercolour Painting](https://www.youtube.com/watch?v=fujTKJnesXI), where she spoke about watercolour painting, while painting on stage. 
 
-### Not Slides
+### Non-Traditional Slides
 
 You could even ditch Keynote, PowerPoint, or LibreOffice all together and use your projector to display other content to support your talk.
 
@@ -50,4 +48,5 @@ For the more pre-prepared style, Christopher Pitt proved you could present a tal
 
 ## Entertain, inspire, and delight. 
 
-Hopefully one of these talks has piqued your interest, and the next time you see a call for papers, you might just submit something with a little bit of flair. Conference organisers love a good out-of-the-box talk. 
+Hopefully one of these talks has piqued your interest, and the next time you see a call for papers, you might just submit something with a little bit of flair. Conference organisers love a good out-of-the-box talk, as long as it's relevent to the material and the audience. A gimmick for gimmick's sake won't be received well, but when it adds extra shine to already good content, it's a delight to experience. 
+
