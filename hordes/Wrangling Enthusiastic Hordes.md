@@ -1,0 +1,25 @@
+# Wrangling Enthusiastic Hordes
+
+
+*See this talk at the [PyCon Maintainer's Summit](https://us.pycon.org/2019/hatchery/maintainers/)*
+
+If you've ever attended a PyCon, be it the [upcoming annual PyCon in Cleveland](https://us.pycon.org/2019/), or one of the many [regional PyCons](https://2019.pycon-au.org/), you would be familiar with the concept of Development Sprints. These are spaces directly after a PyCon (or DjangoCon) where attendees can use the venue space, decked out with power and network, and work on open source projects with other Python developers and practitioners. Since everyone is flying in for a conference anyway, this unstructured time is a remarkable way to forge ahead on projects in person. 
+
+One of the staple projects at these sprints for the last few years has been [BeeWare](https://opensource.com/article/17/4/cross-platform-development-python-and-beeware). [Mentioned](https://opensource.com/article/17/4/how-get-started-learning-program) in [multiple articles](https://opensource.com/article/17/8/jump-start-your-career) on this very website, BeeWare is an extremely welcoming project for newcomers who want to help. 
+
+As part of this effort, the BeeWare project has offered [challenge coins](https://twitter.com/treyhunner/status/833522617223172101) for anyone who has contributed to the project. This can attract dozens of first-time project contributors to the sprint tables. 
+
+After having run over twenty development sprints around the world, we've had to come up with ways to, for want of a better term, wrangle these enthusiastic hordes. This is above and beyond the general care and respect we give to all our sprint participants. BeeWare operates under a [code of conduct](https://beeware.org/community/behavior/code-of-conduct/), and also only runs at events with their own code of conduct; but on top of this: anyone who has taken the time to come to the table, whether they've contributed before or are an old hand, must be treated with respect. A poor experience at our table for the first-time contributor could damage their entire outlook on open source. 
+
+On the other hand: people don't scale terribly well. [Russell Keith-Magee](https://twitter.com/freakboy3742), [Beelevolent Dictator For Now](https://beeware.org/community/team/) of Beeware, can only mentor so many people at once. So we needed a way to ensure that folks could get up to speed with our project, and had more than one person to ask for help if they got stuck. 
+
+To handle this, we developed a second challenge coin: the [Yak Herder](https://twitter.com/nickyringland/status/956126424531812353). To earn this coin, you have to help two or more people earn their Yak Shaver coin. This has dramatically helped us scale our onboarding process for new contributors, while those who help also get a small token of our appreciation. We've also found that initiatives like the [Git Help Desk](https://2018.djangocon.us/news/git-help-desk/) at [DjangoCon US](https://2019.djangocon.us/) helps us and other projects by onboarding new folks to git and GitHub in general, taking the strain off projects who can then focus on onboarding for their project specifically. 
+
+Unfortunately even with these steps, we've hit other bottlenecks at sprints, this time technological. With dozens of folks trying to submit pull requests to the same project at the same time, we often faced backlog with our continutous integration (CI) systems. The free tiers available for open source projects on platforms like [Travis CI](https://travis-ci.org) and [CircleCi](https://circleci.com/) are an invaluable resource; but since they are a free service, they have paralellisation limits. 
+
+BeeWare did develop a [scalable CI system](https://github.com/beeware/beekeeper) a few years ago in order to allow us to scale for events, and this system works well for us. While Travis CI and Circle CI have paid for plans, they don't scale to zero and don't work well for projects like BeeWare with very spikey load. 
+
+If your project has similar spikes in CI, or you're looking for a system that you want to run on your own kit, consider looking at [BuildKite](https://buildkite.com/). BuildKite specialise on having a CI agent you can, with some cloud system administration experience, install on your own infrastrucutre, scaling as you need. They've recently added GitHub SSO and the ability to mark pipelines as public-visible, so they are just about at feature-parity with other providers. BuildKite is part of the CI workflow for projects such as [Matrix](https://github.com/matrix-org) and [Ruby on Rails](https://github.com/rails/rails), so it might be a good fit for your project too. Their [Getting Started guide](https://buildkite.com/docs/tutorials/getting-started) can help give you an overview. 
+
+Overall, we've found that with active delegation, we can reduce the strain on both our principal engineers and critical infrastrucutre, which gives us more time to do the stuff we want to do -- work on our project, and enable others to help us. 
+
